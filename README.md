@@ -41,22 +41,23 @@ library provides
 # <span id="signal_sec" class="anchor"></span> Signal quality
 
 Using this library a oversampling rate of about 160000 samples/second
-can be reached. With according smoothing factors (\~0.92) a standard
+can be reached. With according smoothing factors (\~0.93) a standard
 deviation sigma of about 4-5cm/s can be reached. a signal-to-noise ratio
-of about 20 for small climing rates (70cm/s) see:
+of about 20 for small climbing rates (70cm/s) and a signal noise about
+less thn +-10cm/s see:
 
 ![Variometer-Plot](https://raw.githubusercontent.com/Pulsar07/VarioMS5611/master/doc/img/PlotOf-Vario-SigmaV-RelHeight.png)
 
 # <span id="api_sec" class="anchor"></span> API
 
-see:
-![class-API-reference](https://raw.githubusercontent.com/Pulsar07/VarioMS5611/master/doc/html/classVarioMS5611.html)
+see: ![Class API
+reference](https://htmlpreview.github.io/?https://github.com/Pulsar07/VarioMS5611/blob/master/doc/html/classVarioMS5611.html)
 
 # <span id="hardware_sec" class="anchor"></span> Hardware
 
 Specification of the MS5611/GY-63
 
-  - ![MS5611-01BA0](https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FMS5611-01BA03%7FB3%7Fpdf%7FEnglish%7FENG_DS_MS5611-01BA03_B3.pdf%7FCAT-BLPS0036)
+  - <https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FMS5611-01BA03%7FB3%7Fpdf%7FEnglish%7FENG_DS_MS5611-01BA03_B3.pdf>
 
 </div>
 

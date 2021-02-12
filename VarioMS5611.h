@@ -45,10 +45,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * \section api_sec API
  * see: 
- * ![Class API reference](https://raw.githubusercontent.com/Pulsar07/VarioMS5611/master/doc/html/classVarioMS5611.html)
+ * ![Class API reference](https://htmlpreview.github.io/?https://github.com/Pulsar07/VarioMS5611/blob/master/doc/html/classVarioMS5611.html)
  * \section hardware_sec Hardware
  * Specification of the MS5611/GY-63 
- * * ![MS5611-01BA0](https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FMS5611-01BA03%7FB3%7Fpdf%7FEnglish%7FENG_DS_MS5611-01BA03_B3.pdf%7FCAT-BLPS0036)
+ * * https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FMS5611-01BA03%7FB3%7Fpdf%7FEnglish%7FENG_DS_MS5611-01BA03_B3.pdf
  *
  */
 
