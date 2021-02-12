@@ -1,27 +1,71 @@
-Arduino-MS5611
-===============
 
-MS5611 Barometric Pressure & Temperature Sensor Arduino Library
+<div class="PageDoc">
 
-This library use I2C to communicate, 2 pins are required to interface.
+<div class="header">
 
-Read more: http://www.jarzebski.pl/arduino/czujniki-i-sensory/czujnik-cisnienia-i-temperatury-ms5611.html
+<div class="headertitle">
 
-![MS5611](http://www.jarzebski.pl/media/full/publish/2014/05/ms5611-simple.png)
+<div class="title">
 
-![MS5611](http://www.jarzebski.pl/media/big/publish/2014/05/ms5611-processing.png)
+[VarioMS5611](classVarioMS5611.html "VarioMS5611 non-blocking data aquisition, for large OSR rates and accurate pressure,...")
+library, supporting barometric variometer, altimeter,
 
-I need your help
-----------------
+</div>
 
-July 31, 2017
+</div>
 
-In the near future I plan to refactoring the libraries. The main goal is to improve code quality, new features and add support for different versions of Arduino boards like Uno, Mega and Zero.
+</div>
 
-For this purpose I need to buy modules, Arduino Boards and lot of beer. 
+<div class="contents">
 
-If you want to support the further and long-term development of libraries, please help.
+<div class="textblock">
 
-You can do this by transferring any amount to my PayPal account: paypal@jarzebski.pl
+pressure & temperature provisioning in a accurate and smoothable manner
 
-Thanks!
+# <span id="intro_sec_de" class="anchor"></span> Summary
+
+The
+[VarioMS5611](classVarioMS5611.html "VarioMS5611 non-blocking data aquisition, for large OSR rates and accurate pressure,...")
+library provides
+
+  - access to the raw pressure and temperatur values of the MS5611
+  - calculation of the effective pressure and temperature values by
+    using the MS5611 internal factory calibration data
+  - an interface to manage MS5611 internal oversampling rates (OSR)
+  - an interface to manage smoothing factors for pressure and variometer
+    values
+  - an non blocking data aquisition method provided by using cooperative
+    run() method, for sampling the pressure and temperature data
+  - some extra methods to get statistical measure value information
+
+# <span id="signal_sec" class="anchor"></span> Signal quality
+
+Using this library a oversampling rate of about 160000 samples/second
+can be reached. With according smoothing factors (\~0.92) a standard
+deviation sigma of about 4-5cm/s can be reached. a signal-to-noise ratio
+of about 20 for small climing rates (70cm/s) see:
+
+![Variometer-Plot](https://raw.githubusercontent.com/Pulsar07/VarioMS5611/master/doc/img/PlotOf-Vario-SigmaV-RelHeight.png)
+
+# <span id="api_sec" class="anchor"></span> API
+
+see:
+![class-API-reference](https://raw.githubusercontent.com/Pulsar07/VarioMS5611/master/doc/html/classVarioMS5611.html)
+
+# <span id="hardware_sec" class="anchor"></span> Hardware
+
+Specification of the MS5611/GY-63
+
+  - ![MS5611-01BA0](https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FMS5611-01BA03%7FB3%7Fpdf%7FEnglish%7FENG_DS_MS5611-01BA03_B3.pdf%7FCAT-BLPS0036)
+
+</div>
+
+</div>
+
+</div>
+
+-----
+
+<span class="small">Generated
+by [![doxygen](doxygen.svg)](http://www.doxygen.org/index.html)
+1.8.20</span>
