@@ -50,8 +50,9 @@ less thn +-10cm/s see:
 
 # <span id="api_sec" class="anchor"></span> API
 
-see: ![Class API
-reference](https://htmlpreview.github.io/?https://github.com/Pulsar07/VarioMS5611/blob/master/doc/html/classVarioMS5611.html)
+see: Class API reference
+
+  - <https://htmlpreview.github.io/?https://github.com/Pulsar07/VarioMS5611/blob/master/doc/html/classVarioMS5611.html>
 
 # <span id="hardware_sec" class="anchor"></span> Hardware
 
