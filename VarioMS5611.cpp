@@ -45,14 +45,16 @@ bool VarioMS5611::begin(ms5611_osr_t aSamplingRate) {
     myRawTemperatureVal_D2 = readRawTemperature();
     myVerticalSpeed = 0.0d;
     myVerticalSpeedSmoothingFactor = 0.9d;
-    myTemperatureVal = readTemperature(true)*100;
+    myTemperatureVal = readTemperature(true);
     myReferenceHeight = calcAltitude(getSmoothedPressure());     
     myDoSecondOrderCompensation = false;
     myRunCnt = 0;
     myWarmUpPhase = true;
+    #ifdef VARIO_EXTENDED_INTERFACE
     myReadsCnt = 0;
     myReadsCntTimer = millis();
     myReadsPerSecond = 0.0f;
+    #endif
 
     return true;
 }
@@ -132,13 +134,17 @@ boolean VarioMS5611::triggerReadValues(vario_value_t aRequestType) {
       // so some values has to be fixed finally
       myReferenceHeight = calcAltitude(getSmoothedPressure());     
     }
+    #ifdef VARIO_EXTENDED_INTERFACE
     if ( (myReadsCntTimer+1000) < millis() ) {
       myReadsPerSecond = (float) myReadsCnt / ((millis() - myReadsCntTimer)/1000);
       myReadsCntTimer = millis();
       myReadsCnt = 0;
     }
+    #endif
     if (myPendingValueType == DIGITAL_PRESSURE_VALUE) {
+        #ifdef VARIO_EXTENDED_INTERFACE
         myReadsCnt++;
+        #endif
         myRawPressureVal_D1 = readRegister24(MS5611_CMD_ADC_READ);
 	myTemperatureVal = calcTemperature(myRawTemperatureVal_D2);
 	myPressureVal = calcTemperatureCompensatedPressure(myRawPressureVal_D1, myRawTemperatureVal_D2);
@@ -223,6 +229,7 @@ int32_t VarioMS5611::calcTemperature(uint32_t aRawTemperature) {
 
     TEMP = TEMP - myTEMP2;
 
+    // return temperature in 1/100 °C: 2007 = 20.07°C
     return TEMP;
 }
 
@@ -329,9 +336,11 @@ unsigned int VarioMS5611::getRunCount() {
   return myRunCnt;
 }
 
+#ifdef VARIO_EXTENDED_INTERFACE
 float VarioMS5611::getReadsPerSecond() {
   return myReadsPerSecond;
 }
+#endif
 
 double VarioMS5611::getSmoothedPressure(void) {
   return mySmoothedPressureVal;

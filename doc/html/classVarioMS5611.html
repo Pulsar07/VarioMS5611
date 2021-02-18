@@ -82,14 +82,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a37fe4c6015b7c66c10a3db7510098d2f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVarioMS5611.html#a37fe4c6015b7c66c10a3db7510098d2f">readRawTemperature</a> (void)</td></tr>
 <tr class="memdesc:a37fe4c6015b7c66c10a3db7510098d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the raw tempeature value (blocking)  <a href="classVarioMS5611.html#a37fe4c6015b7c66c10a3db7510098d2f">More...</a><br /></td></tr>
 <tr class="separator:a37fe4c6015b7c66c10a3db7510098d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acab043cf83bd7f85744207bd05f74a16"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVarioMS5611.html#acab043cf83bd7f85744207bd05f74a16">readTemperature</a> (bool aCompensation=false)</td></tr>
-<tr class="memdesc:acab043cf83bd7f85744207bd05f74a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the tempeature value (blocking) in °C  <a href="classVarioMS5611.html#acab043cf83bd7f85744207bd05f74a16">More...</a><br /></td></tr>
-<tr class="separator:acab043cf83bd7f85744207bd05f74a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56050003bc367e628537040c1e004044"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVarioMS5611.html#a56050003bc367e628537040c1e004044">getRawTemperature</a> (void)</td></tr>
 <tr class="memdesc:a56050003bc367e628537040c1e004044"><td class="mdescLeft">&#160;</td><td class="mdescRight">get raw temperature value (non-blocking)  <a href="classVarioMS5611.html#a56050003bc367e628537040c1e004044">More...</a><br /></td></tr>
 <tr class="separator:a56050003bc367e628537040c1e004044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab043cf83bd7f85744207bd05f74a16"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVarioMS5611.html#acab043cf83bd7f85744207bd05f74a16">readTemperature</a> (bool aCompensation=false)</td></tr>
+<tr class="memdesc:acab043cf83bd7f85744207bd05f74a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the tempeature value (blocking) in °C  <a href="classVarioMS5611.html#acab043cf83bd7f85744207bd05f74a16">More...</a><br /></td></tr>
+<tr class="separator:acab043cf83bd7f85744207bd05f74a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a67cf918f2e3d127f8933346a35e891"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVarioMS5611.html#a5a67cf918f2e3d127f8933346a35e891">getTemperature</a> (void)</td></tr>
-<tr class="memdesc:a5a67cf918f2e3d127f8933346a35e891"><td class="mdescLeft">&#160;</td><td class="mdescRight">get temperature value in Pa (non-blocking)  <a href="classVarioMS5611.html#a5a67cf918f2e3d127f8933346a35e891">More...</a><br /></td></tr>
+<tr class="memdesc:a5a67cf918f2e3d127f8933346a35e891"><td class="mdescLeft">&#160;</td><td class="mdescRight">get temperature value in in °C(non-blocking)  <a href="classVarioMS5611.html#a5a67cf918f2e3d127f8933346a35e891">More...</a><br /></td></tr>
 <tr class="separator:a5a67cf918f2e3d127f8933346a35e891"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76f44070694b70a21a3d792e86402dd6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVarioMS5611.html#a76f44070694b70a21a3d792e86402dd6">readRawPressure</a> (void)</td></tr>
 <tr class="memdesc:a76f44070694b70a21a3d792e86402dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the raw pressure value (blocking)  <a href="classVarioMS5611.html#a76f44070694b70a21a3d792e86402dd6">More...</a><br /></td></tr>
@@ -336,7 +336,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>get raw temperature value (non-blocking) </p>
-<p>returns the raw temperature value given by the MS5611, of the last prefetched value getXXX() means non-blocking get of pre fetched values/calculations/smoothings within <a class="el" href="classVarioMS5611.html#aff0716f07841fa4680848464349c084d" title="non blocking data aquisition method provided by using cooperative run() method, for sampling the pres...">run()</a> </p>
+<p>returns the raw temperature value given by the MS5611, of the last prefetched value the returned value is an internal representation without an unit getXXX() means non-blocking get of pre fetched values/calculations/smoothings within <a class="el" href="classVarioMS5611.html#aff0716f07841fa4680848464349c084d" title="non blocking data aquisition method provided by using cooperative run() method, for sampling the pres...">run()</a> </p>
 
 </div>
 </div>
@@ -460,8 +460,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>get temperature value in Pa (non-blocking) </p>
-<p>returns the temperature value in Pa , of the last prefetched calculated value second order temperature compensation is manged by setSecondOrderCompenstation(val) getXXX() means non-blocking get of pre fetched values/calculations/smoothings within <a class="el" href="classVarioMS5611.html#aff0716f07841fa4680848464349c084d" title="non blocking data aquisition method provided by using cooperative run() method, for sampling the pres...">run()</a> </p>
+<p>get temperature value in in °C(non-blocking) </p>
+<p>returns the temperature value in °C , of the last prefetched calculated value second order temperature compensation is manged by setSecondOrderCompenstation(val) getXXX() means non-blocking get of pre fetched values/calculations/smoothings within <a class="el" href="classVarioMS5611.html#aff0716f07841fa4680848464349c084d" title="non blocking data aquisition method provided by using cooperative run() method, for sampling the pres...">run()</a> </p>
 
 </div>
 </div>
@@ -571,7 +571,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>read the raw tempeature value (blocking) </p>
-<p>returns the raw temperature value given by the MS5611 chip readXXX() means here reading in a blocking manner (~ 0-30ms) </p>
+<p>returns the raw temperature value given by the MS5611 chip the returned value is an internal representation without an unit readXXX() means here reading in a blocking manner (~ 0-30ms) </p>
 
 </div>
 </div>
@@ -592,7 +592,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>read the tempeature value (blocking) in °C </p>
-<p>returns the temperature value in °C (-40...85°C with 0.01°C resolution) the returned value is an internal representation without an unit readXXX() means here reading in a blocking manner (~ 0-30ms) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>returns the temperature value in °C (-40...85°C with 0.01°C resolution) readXXX() means here reading in a blocking manner (~ 0-30ms) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">aCompensation</td><td>if true a second order compensation is done (more accurate at T&lt;20°C) </td></tr>
   </table>
@@ -710,8 +710,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/share/home/stransky/dev/arduino/gitHub/VarioMS5611.rs/VarioMS5611/<a class="el" href="VarioMS5611_8h_source.html">VarioMS5611.h</a></li>
-<li>/share/home/stransky/dev/arduino/gitHub/VarioMS5611.rs/VarioMS5611/VarioMS5611.cpp</li>
+<li>/share/home/stransky/dev/arduino/gitHub/VarioMS5611/VarioMS5611/<a class="el" href="VarioMS5611_8h_source.html">VarioMS5611.h</a></li>
+<li>/share/home/stransky/dev/arduino/gitHub/VarioMS5611/VarioMS5611/VarioMS5611.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

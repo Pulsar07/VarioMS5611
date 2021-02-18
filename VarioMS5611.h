@@ -70,11 +70,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Version history
 // V0.1.0 : full functional initial version, 
 //          based on MS5611-Arduino library V 1.0.0 by Korneliusz Jarzebski
+// V0.1.1 : fixed minor temperature bug, and "removed" some extended / not needed code parts to 
+//          reduce memory usage
 
 #ifndef VARIO_MS5611_h
 #define VARIO_MS5611_h
 
-#define VARIO_MS5611_VERSION "V0.1.0"
+#define VARIO_MS5611_VERSION "V0.1.1"
 
 #if ARDUINO >= 100
 #include "Arduino.h"
@@ -133,28 +135,30 @@ class VarioMS5611
 
 	/// read the raw tempeature value (blocking)
 	/** returns the raw temperature value given by the MS5611 chip 
+	 * the returned value is an internal representation without an unit
 	 * readXXX() means here reading in a blocking manner (~ 0-30ms)
 	 */
 	uint32_t readRawTemperature(void);
 
+	/// get raw temperature value (non-blocking)
+	/**
+	 * returns the raw temperature value given by the MS5611, of the last prefetched value 
+	 * the returned value is an internal representation without an unit
+	 * getXXX() means non-blocking get of pre fetched values/calculations/smoothings within run()
+	 */
+	uint32_t getRawTemperature(void);
+
 	/// read the tempeature value (blocking) in °C
 	/** returns the temperature value in °C (-40...85°C with 0.01°C resolution) 
-	 * the returned value is an internal representation without an unit
 	 * readXXX() means here reading in a blocking manner (~ 0-30ms)
 	 * @param aCompensation if true a second order compensation is done (more accurate at T<20°C)
 	 */
 	double readTemperature(bool aCompensation = false);
 
-	/// get raw temperature value (non-blocking)
-	/**
-	 * returns the raw temperature value given by the MS5611, of the last prefetched value 
-	 * getXXX() means non-blocking get of pre fetched values/calculations/smoothings within run()
-	 */
-	uint32_t getRawTemperature(void);
 
-	/// get temperature value in Pa (non-blocking)
+	/// get temperature value in in °C(non-blocking)
 	/**
-	 * returns the temperature value in Pa , of the last prefetched calculated value 
+	 * returns the temperature value in °C , of the last prefetched calculated value 
 	 * second order temperature compensation is manged by setSecondOrderCompenstation(val)
 	 * getXXX() means non-blocking get of pre fetched values/calculations/smoothings within run()
 	 */
@@ -304,9 +308,11 @@ class VarioMS5611
 	bool myDoSecondOrderCompensation;
 	bool myWarmUpPhase;
         unsigned int myRunCnt;
+        #ifdef VARIO_EXTENDED_INTERFACE
         unsigned int myReadsCnt;
         unsigned long myReadsCntTimer;
         float myReadsPerSecond;
+        #endif
 	double myPressureSmoothingFactor;
 	double myReferenceHeight;
 	vario_value_t myPendingValueType;
@@ -322,8 +328,6 @@ class VarioMS5611
         uint32_t myRawTemperatureVal_D2;
         int32_t myPressureVal;
         double  mySmoothedPressureVal;
-        int16_t myPressureHistoryIdx;
-        int16_t myRawPressureHistoryIdx;
         int32_t myTemperatureVal;
 
 	uint8_t myct;
