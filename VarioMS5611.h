@@ -72,11 +72,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //          based on MS5611-Arduino library V 1.0.0 by Korneliusz Jarzebski
 // V0.1.1 : fixed minor temperature bug, and "removed" some extended / not needed code parts to 
 //          reduce memory usage
+// V0.1.2 : bug fix: relative altitude is reseted due to counter overflow
 
 #ifndef VARIO_MS5611_h
 #define VARIO_MS5611_h
 
-#define VARIO_MS5611_VERSION "V0.1.1"
+#define VARIO_MS5611_VERSION "V0.1.2"
 
 #if ARDUINO >= 100
 #include "Arduino.h"
@@ -307,7 +308,7 @@ class VarioMS5611
     private:
 	bool myDoSecondOrderCompensation;
 	bool myWarmUpPhase;
-        unsigned int myRunCnt;
+        uint32_t myRunCnt;
         #ifdef VARIO_EXTENDED_INTERFACE
         unsigned int myReadsCnt;
         unsigned long myReadsCntTimer;
